@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "sfg.aiapp")
 public class VectorStoreProperties {
 
+    //ta eierskap
     private String vectorStorePath;
 
     public String getVectorStorePath() {
