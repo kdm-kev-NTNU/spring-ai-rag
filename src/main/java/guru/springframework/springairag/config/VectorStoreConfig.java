@@ -23,12 +23,12 @@ public class VectorStoreConfig {
 
     @Bean
     public SimpleVectorStore simpleVectorStore(EmbeddingModel embeddingModel, VectorStoreProperties vectorStoreProperties) {
-        SimpleVectorStore store = SimpleVectorStore.builder(embeddingModel).build();
+        SimpleVectorStore store = SimpleVectorStore.builder(embeddingModel).build(); //Her importerer man en embedding model
 
-        File vectorStoreFile = new File(vectorStoreProperties.getVectorStorePath());
+        File vectorStoreFile = new File(vectorStoreProperties.getVectorStorePath());  //her setter man en fil representasjon
 
         if (vectorStoreFile.exists()) {
-            store.load(vectorStoreFile);
+            store.load(vectorStoreFile);  //hvis filen eksisterer, load den, via embedderen.
         } else {
             log.debug("Loading documents into vector store");
             vectorStoreProperties.getDocumentsToLoad().forEach(document -> {
